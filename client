@@ -1,0 +1,36 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+Front/node_modules/.cache/babel-loader/06d715b40a68d8d86895571695c9d51c.json
+Front/node_modules/.cache/babel-loader/142bfcd7dd2de7014d3031cf78254b8a17052408.json.gz
+
+Front/node_modules/.cache/babel-loader/1e42babb412970c59b6f50d07cec4b950cd6aa51.json.gz
+Front/node_modules/.cache/babel-loader/2e4eba9c97eb74fd4a3a88d0badb251388847f81.json.gz
+Front/node_modules/.cache/babel-loader/f13b8959172c18bed8d6cf9f830a1a8bc291aa1e.json.gz
+Front/node_modules/.cache/babel-loader/e7df8181402788824fd259f8dde9d0d0ad95f37b.json.gz
+Front/node_modules/.cache/babel-loader/22650589087ecb2208ae701f6a2fb1c3787e6287.json.gz
+Front/node_modules/.cache/babel-loader/51639645754ef64061b6179944064a79a8a29773.json.gz
+Front/node_modules/.cache/babel-loader/a317aa91e69f85bdd081710b06309c3b902fc891.json.gz
+Front/node_modules/.cache/babel-loader/b6668880c806e666a5d08eac71d9a69c95ca002c.json.gz
+demo/
+macha/
