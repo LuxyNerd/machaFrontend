@@ -7,7 +7,8 @@ import { config } from './../core/app.config';
 
 export const createNewUser = (user, history) => async dispatch => {
   try {
-    await axios.post('/user/register', user);
+    //SO MUSS DAS AUSSEHEN ;-) du nutzt deinen selber konfigurierten axios client und nicht den aus node_modules
+    await post(config.baseURL, '/user/register', user);
     history.push('/login');
     dispatch({
       type: GET_ERRORS,
