@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Layout/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import Landing from './components/Layout/Landing';
 import Register from './components/UserManagement/Register';
-import Networks from './components/UserManagement/Networks';
 import Login from './components/UserManagement/Login';
 import jwt_decode from 'jwt-decode';
 import setJWTToken from './securityUtils/setJWTToken';
 import { SET_CURRENT_USER } from './actions/types';
 import { logout } from './actions/securityActions';
+//import SecuredRoute from './securityUtils/SecureRoute';
 
 const jwtToken = localStorage.jwtToken;
 
@@ -45,11 +45,13 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/networks" component={Networks} />
 
             {
               //Private Routes
             }
+            <Switch>
+              {/* <SecuredRoute exact path="/dashboard" component={Dashboard} /> */}
+            </Switch>
           </div>
         </Router>
       </Provider>

@@ -5,11 +5,8 @@ img {
 .navbar {
   background-color: #e3f2fd;
 }
-.bg-primary {
-  background-color: #721c3d !important;
-}
 .fa.fa-edit {
-  color: #54ba7d;
+  color: #18a2b9;
 }
 
 .list-group-item.delete:hover {
@@ -36,7 +33,6 @@ img {
   /* background: url("../img/showcase.jpg") no-repeat; */
   background-size: cover;
   background-position: center;
-  background-color: rgb(226, 247, 235);
   height: 100vh;
   margin-top: -24px;
   margin-bottom: -50px;

@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 class Landing extends Component {
   componentDidMount() {
     if (this.props.security.validToken) {
-      this.props.history.push('/dashboard');
+      //TODO take this token on a page
+      // this.props.history.push('/dashboard');
     }
   }
   render() {
@@ -16,9 +17,10 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">*** MaCha ***</h1>
+                <h1 className="display-3 mb-4">Master Channel</h1>
                 <p className="lead">
-                  Create just one account and get the rest!
+                  Create your account here, to join in your social media
+                  accounts
                 </p>
                 <hr />
                 <Link className="btn btn-lg btn-primary mr-2" to="/register">
@@ -26,9 +28,6 @@ class Landing extends Component {
                 </Link>
                 <Link className="btn btn-lg btn-secondary mr-2" to="/login">
                   Login
-                </Link>
-                <Link className="btn btn-lg btn-secondary mr-2" to="/Networks">
-                  Select Social Network
                 </Link>
               </div>
             </div>

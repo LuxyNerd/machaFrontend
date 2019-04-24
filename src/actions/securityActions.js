@@ -1,14 +1,12 @@
-import axios from 'axios';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
-import setJWTToken from '../securityUtils/setJWTToken';
-import jwt_decode from 'jwt-decode';
-import { post } from './../core/axios';
-import { config } from './../core/app.config';
+import axios from "axios";
+import { GET_ERRORS, SET_CURRENT_USER } from "./types";
+import setJWTToken from "../securityUtils/setJWTToken";
+import jwt_decode from "jwt-decode";
 
-export const createNewUser = (user, history) => async dispatch => {
+export const createNewUser = (newUser, history) => async dispatch => {
   try {
-    await axios.post('/user/register', user);
-    history.push('/login');
+    await axios.post("/api/users/register", newUser);
+    history.push("/login");
     dispatch({
       type: GET_ERRORS,
       payload: {}
@@ -24,22 +22,21 @@ export const createNewUser = (user, history) => async dispatch => {
 export const login = LoginRequest => async dispatch => {
   try {
     // post => Login Request
-    const res = await post(config.baseURL, '/user/login');
+    const res = await axios.post("/api/users/login", LoginRequest);
     // extract token from res.data
     const { token } = res.data;
     // store the token in the localStorage
-    localStorage.setItem('jwtToken', token);
-    // set  token in header ***
+    localStorage.setItem("jwtToken", token);
+    // set our token in header ***
     setJWTToken(token);
     // decode token on React
     const decoded = jwt_decode(token);
-    // dispatch to securityReducer
+    // dispatch to our securityReducer
     dispatch({
       type: SET_CURRENT_USER,
       payload: decoded
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data
@@ -48,7 +45,7 @@ export const login = LoginRequest => async dispatch => {
 };
 
 export const logout = () => dispatch => {
-  localStorage.removeItem('jwtToken');
+  localStorage.removeItem("jwtToken");
   setJWTToken(false);
   dispatch({
     type: SET_CURRENT_USER,
