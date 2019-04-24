@@ -20,7 +20,7 @@ class Register extends Component {
 
   componentDidMount() {
     if (this.props.security.validToken) {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/Networks');
     }
   }
 

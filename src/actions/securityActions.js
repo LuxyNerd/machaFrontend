@@ -5,9 +5,9 @@ import jwt_decode from 'jwt-decode';
 import { post } from './../core/axios';
 import { config } from './../core/app.config';
 
-export const createNewUser = (newUser, history) => async dispatch => {
+export const createNewUser = (user, history) => async dispatch => {
   try {
-    await axios.post('/api/users/register', newUser);
+    await axios.post('/user/register', user);
     history.push('/login');
     dispatch({
       type: GET_ERRORS,
@@ -24,22 +24,26 @@ export const createNewUser = (newUser, history) => async dispatch => {
 export const login = LoginRequest => async dispatch => {
   try {
     // post => Login Request
-     const res = await post(config.baseURL, '/users/login');
-    // // extract token from res.data
-    // const { token } = res.data;
-    // // store the token in the localStorage
-    // localStorage.setItem('jwtToken', token);
-    // // set our token in header ***
-    // setJWTToken(token);
-    // // decode token on React
-    // const decoded = jwt_decode(token);
-    // dispatch to our securityReducer
-    // dispatch({
-    //   type: SET_CURRENT_USER,
-    //   payload: decoded
-    // });
+    const res = await post(config.baseURL, '/user/login');
+    // extract token from res.data
+    const { token } = res.data;
+    // store the token in the localStorage
+    localStorage.setItem('jwtToken', token);
+    // set  token in header ***
+    setJWTToken(token);
+    // decode token on React
+    const decoded = jwt_decode(token);
+    // dispatch to securityReducer
+    dispatch({
+      type: SET_CURRENT_USER,
+      payload: decoded
+    });
   } catch (err) {
     console.log(err);
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
   }
 };
 
