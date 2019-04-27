@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import classnames from "classnames";
-import { login } from "../../actions/securityActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
+import { login } from '../../actions/securityActions';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       errors: {}
     };
     this.onChange = this.onChange.bind(this);
@@ -18,13 +18,13 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.security.validToken) {
-      this.props.history.push("/dashboard");
+      this.props.history.push('/dashboard');
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.security.validToken) {
-      this.props.history.push("/dashboard");
+      this.props.history.push('/dashboard');
     }
 
     if (nextProps.errors) {
@@ -58,8 +58,8 @@ class Login extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.username
+                    className={classnames('form-control form-control-lg', {
+                      'is-invalid': errors.username
                     })}
                     placeholder="Email Address"
                     name="username"
@@ -73,8 +73,8 @@ class Login extends Component {
                 <div className="form-group">
                   <input
                     type="password"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.password
+                    className={classnames('form-control form-control-lg', {
+                      'is-invalid': errors.password
                     })}
                     placeholder="Password"
                     name="password"
