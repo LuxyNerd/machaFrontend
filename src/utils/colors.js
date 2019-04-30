@@ -4,6 +4,6 @@ const COLORS = {
   color: '#123',
   lightColor: '#567',
   red: '#d62d20'
-}
+};
 
-export default COLORS
+export default COLORS;

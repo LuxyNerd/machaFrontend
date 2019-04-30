@@ -7,14 +7,17 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Landing from './components/Layout/Landing';
 import Register from './UserManagement/Register';
-import Networks from './UserManagement/Networks';
 import Login from './UserManagement/Login';
 import jwt_decode from 'jwt-decode';
 import setJWTToken from './securityUtils/setJWTToken';
 import { SET_CURRENT_USER } from './actions/types';
 import { logout } from './actions/securityActions';
+import NetworkOverviewTabs from './components/Layout/NetworkOverviewTabs';
 
 const jwtToken = localStorage.jwtToken;
+const styles = {
+  fontFamily: 'sans-serif'
+};
 
 if (jwtToken) {
   setJWTToken(jwtToken);
@@ -32,24 +35,30 @@ if (jwtToken) {
 }
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { active: 'fbTab' };
+  // }
   render() {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
-            <Header />
-            {
-              //Public Routes
-            }
+          <div style={styles}>
+            <div className="App">
+              <Header />
+              {
+                //Public Routes
+              }
 
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/networks" component={Networks} />
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/networks" component={NetworkOverviewTabs} />
 
-            {
-              //Private Routes
-            }
+              {
+                //Private Routes
+              }
+            </div>
           </div>
         </Router>
       </Provider>

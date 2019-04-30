@@ -1,6 +1,5 @@
 export function PostData(type, userData) {
-  let BaseURL = 'TODO';
-  //let BaseURL = 'http://localhost/socialapi/';
+  let BaseURL = 'http://localhost/socialapi/';
 
   return new Promise((resolve, reject) => {
     fetch(BaseURL + type, {

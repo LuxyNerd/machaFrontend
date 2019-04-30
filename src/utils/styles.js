@@ -1,4 +1,5 @@
-import COLORS from './colors'
+import COLORS from './colors';
+import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 export const card = {
   boxShadow: '0 0 15px rgba(0,0,0,0.25)',
@@ -9,7 +10,7 @@ export const card = {
   flexDirection: 'column',
   minWidth: '10em',
   maxWidth: '25em'
-}
+};
 
 export const hr = {
   border: 0,
@@ -17,4 +18,4 @@ export const hr = {
   borderTop: '1px solid rgba(0, 0, 0, 0.1)',
   borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
   margin: '1rem 0'
-}
+};
