@@ -7,6 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Facebook from '../../UserManagement/Facebook';
+import Twitter from '../../UserManagement/Twitter';
+import Google from '../../UserManagement/Google';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function TabContainer({ children, dir }) {
@@ -56,6 +58,7 @@ class NetworkOverviewTabs extends React.Component {
             variant="fullWidth"
           >
             <Tab label="Facebook" />
+            <Tab label="Twitter" />
             <Tab label="Google" />
           </Tabs>
         </AppBar>
@@ -69,7 +72,16 @@ class NetworkOverviewTabs extends React.Component {
               <Route exact path="/networks" component={Facebook} />
             </div>
           </TabContainer>
-          <TabContainer dir={theme.direction}>Google</TabContainer>
+          <TabContainer dir={theme.direction}>
+            <div>
+              <Route exact path="/networks" component={Twitter} />
+            </div>
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            <div>
+              <Route exact path="/networks" component={Google} />
+            </div>
+          </TabContainer>
         </SwipeableViews>
       </div>
     );
