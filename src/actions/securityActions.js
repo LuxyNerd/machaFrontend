@@ -5,9 +5,11 @@ import jwt_decode from 'jwt-decode';
 // import { post } from './../core/axios';
 // import { config } from './../core/app.config';
 
+//TODO info to test the backend, change IP address to "localhost" oder enter new IPAddess for Backend, which will be running on a RaspberryPis
+
 export const createNewUser = (user, history) => async dispatch => {
   try {
-    await axios.post('http://localhost:8080/user/register', user);
+    await axios.post('http://10.14.0.13:8080/user/register', user);
     history.push('/login');
     dispatch({
       type: GET_ERRORS,
@@ -24,7 +26,8 @@ export const createNewUser = (user, history) => async dispatch => {
 export const login = LoginRequest => async dispatch => {
   try {
     // post => Login Request
-    const res = await axios.post('http://localhost:8080/login', LoginRequest);
+
+    const res = await axios.post('http://10.14.0.13:8080/login', LoginRequest);
     // extract token from res.data
     const { token } = res.data;
     // store the token in the localStorage
